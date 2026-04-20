@@ -4,6 +4,9 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import demo_hackathon.example.demo.Dto.UserRequestDTO;
+import demo_hackathon.example.demo.Dto.UserResponseDTO;
+import demo_hackathon.example.demo.model.Roles;
 import demo_hackathon.example.demo.model.User;
 import demo_hackathon.example.demo.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -30,7 +33,8 @@ public class UserService {
                 saved.getName(),
                 saved.getEmail(),
                 saved.getOrganizationName(),
-                saved.getRole()
+                saved.getRole(),
+                saved.getCreatedAt()
         );
     }
 
@@ -41,7 +45,8 @@ public class UserService {
                         u.getName(),
                         u.getEmail(),
                         u.getOrganizationName(),
-                        u.getRole()
+                        u.getRole(),
+                        u.getCreatedAt()
                 ))
                 .toList();
     }
@@ -53,7 +58,8 @@ public class UserService {
                         u.getName(),
                         u.getEmail(),
                         u.getOrganizationName(),
-                        u.getRole()
+                        u.getRole(),
+                        u.getCreatedAt()
                 ))
                 .toList();
     }

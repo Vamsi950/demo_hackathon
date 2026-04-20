@@ -1,9 +1,12 @@
 package demo_hackathon.example.demo.Service;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import demo_hackathon.example.demo.Dto.TransactionRequestDTO;
+import demo_hackathon.example.demo.Dto.TransactionResponseDTO;
 import demo_hackathon.example.demo.model.CarbonCredit;
 import demo_hackathon.example.demo.model.CreditLedger;
 import demo_hackathon.example.demo.model.CreditListing;
@@ -80,4 +83,16 @@ public class TransactionService {
                 saved.getTransactionStatus()
         );
     }
+    public List<TransactionResponseDTO> getAll() {
+    return txRepo.findAll()
+            .stream()
+            .map(t -> new TransactionResponseDTO(
+                    t.getId(),
+                    t.getPurchasedQuantity(),
+                    t.getTotalPrice(),
+                    t.getTransactionStatus()
+            ))
+            .toList();
+}
+
 }

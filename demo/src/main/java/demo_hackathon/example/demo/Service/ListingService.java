@@ -5,6 +5,8 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import demo_hackathon.example.demo.Dto.ListingRequestDTO;
+import demo_hackathon.example.demo.Dto.ListingResponseDTO;
 import demo_hackathon.example.demo.model.CarbonCredit;
 import demo_hackathon.example.demo.model.CreditListing;
 import demo_hackathon.example.demo.model.ListingStatus;
@@ -68,12 +70,13 @@ public class ListingService {
     }
 
     private ListingResponseDTO mapToResponse(CreditListing l) {
-        return new ListingResponseDTO(
-                l.getId(),
-                l.getCarbonCredit().getId(),
-                l.getListedQuantity(),
-                l.getPricePerCredit(),
-                l.getListingStatus()
-        );
-    }
+    return new ListingResponseDTO(
+            l.getId(),
+            l.getCarbonCredit().getId(),   // creditId
+            l.getListedQuantity(),         // quantity
+            l.getPricePerCredit(),         // price
+            l.getListingDate(),            // date
+            l.getListingStatus()           // status
+    );
+}
 }

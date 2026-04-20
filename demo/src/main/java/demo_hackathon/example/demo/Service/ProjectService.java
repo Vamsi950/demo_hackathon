@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import demo_hackathon.example.demo.Dto.ProjectRequestDTO;
+import demo_hackathon.example.demo.Dto.ProjectResponseDTO;
 import demo_hackathon.example.demo.model.CarbonProject;
 import demo_hackathon.example.demo.model.ProjectStatus;
 import demo_hackathon.example.demo.model.User;
@@ -35,8 +37,14 @@ public class ProjectService {
         return new ProjectResponseDTO(
                 saved.getId(),
                 saved.getProjectName(),
+                saved.getProjectType(),
+                saved.getLocation(),
+                saved.getEstimatedReduction(),
+                saved.getStartDate(),
+                saved.getEndDate(),
                 saved.getProjectStatus(),
-                saved.getCreatedBy().getId()
+                saved.getCreatedBy().getId(),
+                saved.getCreatedAt()
         );
     }
 
@@ -45,8 +53,14 @@ public class ProjectService {
                 .map(p -> new ProjectResponseDTO(
                         p.getId(),
                         p.getProjectName(),
+                        p.getProjectType(),
+                        p.getLocation(),
+                        p.getEstimatedReduction(),
+                        p.getStartDate(),
+                        p.getEndDate(),
                         p.getProjectStatus(),
-                        p.getCreatedBy().getId()
+                        p.getCreatedBy().getId(),
+                        p.getCreatedAt()
                 )).toList();
     }
 }

@@ -4,6 +4,7 @@ import java.time.LocalDate;
 
 import org.springframework.stereotype.Service;
 
+import demo_hackathon.example.demo.Dto.VerificationRequestDTO;
 import demo_hackathon.example.demo.model.CarbonCredit;
 import demo_hackathon.example.demo.model.CarbonProject;
 import demo_hackathon.example.demo.model.CreditStatus;

@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import demo_hackathon.example.demo.Dto.CreditResponseDTO;
 import demo_hackathon.example.demo.model.CarbonCredit;
 import demo_hackathon.example.demo.repository.CarbonCreditRepository;
 import lombok.RequiredArgsConstructor;
@@ -17,8 +18,11 @@ public class CreditService {
         return creditRepo.findAll().stream()
                 .map(c -> new CreditResponseDTO(
                         c.getId(),
+                        c.getCarbonProject().getId(),
                         c.getTotalCredits(),
                         c.getAvailableCredits(),
+                        c.getCreatedAt(),
+                        c.getIssueDate(),
                         c.getCreditStatus()
                 )).toList();
     }
@@ -28,8 +32,11 @@ public class CreditService {
 
         return new CreditResponseDTO(
                 c.getId(),
+                c.getCarbonProject().getId(),
                 c.getTotalCredits(),
                 c.getAvailableCredits(),
+                c.getCreatedAt(),
+                c.getIssueDate(),
                 c.getCreditStatus()
         );
     }
